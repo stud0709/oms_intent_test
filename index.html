@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone integration test page for OneMoreSecret</title>
+    <!-- Use GitHub Markdown CSS to get the markdown style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <style>
+        body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+        @media (max-width: 767px) {
+            body {
+                padding: 15px;
+            }
+        }
+        .intent-link {
+            word-break: break-all;
+            background: #f6f8fa;
+            padding: 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 10px 0;
+            font-family: monospace;
+            text-decoration: none;
+        }
+        .intent-link:hover {
+            background: #e1e4e8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="markdown-body">
+    <h1>Smartphone integration test page for OneMoreSecret</h1>
+
+    <h2>How to Construct an Intent Link</h2>
+    <p>
+        Chrome on Android supports a special <code>intent://</code> URI scheme that allows web pages to launch Android applications directly. 
+        For OneMoreSecret, you can construct an intent link using the following template:
+    </p>
+    <pre><code>intent://stud0709.github.io/oms_intent/#Intent;scheme=https;package=com.onemoresecret;S.m=&lt;your_oms_message&gt;;S.browser_fallback_url=stud0709.github.io%2Foms_intent%2F;end</code></pre>
+    
+    <p>Let's break down the components:</p>
+    <ul>
+        <li><code>intent://stud0709.github.io/oms_intent/</code>: The intent target host and path.</li>
+        <li><code>#Intent;</code>: Begins the intent definition block.</li>
+        <li><code>scheme=https;</code>: Defines the target scheme.</li>
+        <li><code>package=com.onemoresecret;</code>: Explicitly targets the OneMoreSecret app package.</li>
+        <li><code>S.m=&lt;your_oms_message&gt;;</code>: Passes your encrypted OMS message as a String extra named <code>m</code>.</li>
+        <li><code>S.browser_fallback_url=...;</code>: Provides a fallback URL to visit if the app is not installed.</li>
+        <li><code>end</code>: Terminates the intent block.</li>
+    </ul>
+
+    <h2>Test Links</h2>
+    <p>Below are two test links using the <code>intent://</code> protocol. If you are reading this on your smartphone with OneMoreSecret installed, clicking these links will automatically open the app and pass the message payload.</p>
+
+    <h3>1. Import Private Key</h3>
+    <p>Click the link below to import the sample private key:</p>
+    <a class="intent-link" href="intent://stud0709.github.io/oms_intent/#Intent;scheme=https;package=com.onemoresecret;S.m=oms00_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;S.browser_fallback_url=stud0709.github.io%2Foms_intent%2F;end">
+        Import Sample Key
+    </a>
+
+    <h3>2. Decrypt Secret Message</h3>
+    <p>Click the link below to decrypt the sample message (requires the sample key above):</p>
+    <a class="intent-link" href="intent://stud0709.github.io/oms_intent/#Intent;scheme=https;package=com.onemoresecret;S.m=oms00_AAEAAAAg21N0EVMYnl7uMSeQGZwFfGf43ysMvANVTWWN7OJ/pzkAAAAQ87NChX7bQv1P35zZlTBICAEABmwOQYvROKWcWUI32CtAttm9m7EmghJRERlcnjOc8PhArnkGtGYq9M2sS0ZSNnsZuH7w6hD/LcAEUnWRQ34ynGy/jsiv4B4iwA3y0i6cFBmrh2jJEpZxL3gNPRGNfcep6eey22RUNE+CJflf91ttUTJKW3FyKTB9Yed7hqSy5xeYbFuL1h6mWLo3ZHtth+A0HGZXG0V18uwdr/fv7QkmXLT65KOzlv8a5+vjnTKF/S8u9IjC8/D9XixbScB9NuaCFK2Qq0eJ1Hu9bVEFYaGhdgWqhRB/9y6g776ghRkRzXlu8Z/oExVZ9aN5DUg4awGzs0YamMBKP6fkYFXHuyBE6QAgYc2BkuxKjYyNM9EHcai+tE27uS3qKRYoRW1/xpbOPdg=;S.browser_fallback_url=stud0709.github.io%2Foms_intent%2F;end">
+        Decrypt Secret Message
+    </a>
+</body>
+</html>
