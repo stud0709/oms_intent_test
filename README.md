@@ -1,1 +1,1 @@
-Smartphone integration test for [OneMoreSecret](https://github.com/stud0709/OneMoreSecret)
+Smartphone Integration Test for [OneMoreSecret](https://github.com/stud0709/OneMoreSecret)
